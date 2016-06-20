@@ -15,7 +15,6 @@ set laststatus=2
 set noshowmode
 set nu
 set tabstop=4 softtabstop=4 shiftwidth=4
-autocmd FileType python setlocal expandtab
 set cindent
 set background=dark
 set ttimeoutlen=50
