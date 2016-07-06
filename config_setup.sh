@@ -3,6 +3,8 @@
 ln -s vimrc ~/.vimrc
 ln -s bashrc ~/.bashrc
 
+source ~/.bashrc
+
 mkdir -P ~/.vim/autoload ~/.vim/bundle
 
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
