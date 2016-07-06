@@ -20,3 +20,4 @@ prompt_git() {
 export EDITOR=vim
 alias macnfs="sudo service nfs restart"
 alias search="grep -Rn"
+alias weka="java -jar ~/weka-3-8-0/weka.jar &"
