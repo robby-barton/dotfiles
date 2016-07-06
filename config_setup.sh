@@ -1,11 +1,10 @@
 #!/bin/bash
+PWD=`pwd`
 
-ln -s vimrc ~/.vimrc
-ln -s bashrc ~/.bashrc
+ln -sf $PWD/vimrc ~/.vimrc
+ln -sf $PWD/bashrc ~/.bashrc
 
-source ~/.bashrc
-
-mkdir -P ~/.vim/autoload ~/.vim/bundle
+mkdir -p ~/.vim/autoload ~/.vim/bundle
 
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
