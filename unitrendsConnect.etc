@@ -1,0 +1,47 @@
+#!/bin/bash
+
+exec > /tmp/openconnectLog 2>&1
+
+echo "$@"
+env
+
+set -x
+if [[ "$reason" = 'connect' ]]; then
+#    /sbin/ip route add $VPNGATEWAY via 192.168.254.254 dev eth1
+    if [[ -z "$INTERNAL_IP4_MTU" ]]; then
+        /sbin/ip link set dev $TUNDEV up
+    else
+        /sbin/ip link set dev $TUNDEV up mtu $INTERNAL_IP4_MTU
+    fi
+    /sbin/ip addr add $INTERNAL_IP4_ADDRESS dev $TUNDEV
+# CISCO_SPLIT_INC_0_ADDR=10.200.0.0
+# CISCO_SPLIT_INC_0_MASK=255.255.0.0
+# CISCO_SPLIT_INC_0_MASKLEN=16
+    for ((i = CISCO_SPLIT_INC - 1; (i >= 0); --i)); do
+        IPaddress=CISCO_SPLIT_INC_${i}_ADDR
+        maskLength=CISCO_SPLIT_INC_${i}_MASKLEN
+        /sbin/ip route add ${!IPaddress}/${!maskLength}            \
+            via $INTERNAL_IP4_ADDRESS dev $TUNDEV
+    done
+#    /sbin/ip route add 192.168.0.0/16 via $INTERNAL_IP4_ADDRESS    \
+#        dev $TUNDEV
+#    /sbin/ip route add 10.101.0.0/16 via $INTERNAL_IP4_ADDRESS    \
+#        dev $TUNDEV
+elif [[ "$reason" = 'disconnect' ]]; then
+    for ((i = CISCO_SPLIT_INC - 1; (i >- 0); --i)); do
+        IPaddress=CISCO_SPLIT_INC_${i}_ADDR
+        maskLength=CISCO_SPLIT_INC_${i}_MASKLEN
+        /sbin/ip route del ${!IPaddress}/${!maskLength}            \
+            via $INTERNAL_IP4_ADDRESS dev $TUNDEV
+    done
+#    /sbin/ip route del 192.168.0.0/16 via $INTERNAL_IP4_ADDRESS    \
+#        dev $TUNDEV
+#    /sbin/ip route del 10.101.0.0/16 via $INTERNAL_IP4_ADDRESS    \
+#        dev $TUNDEV
+#    /sbin/ip route del $VPNGATEWAY via 192.168.254.254 dev eth1
+else
+    echo "Unknown reason: '$reason'"
+    exit 1
+fi
+
+exit 0
