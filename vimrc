@@ -17,8 +17,9 @@ set nu
 set autoindent noexpandtab tabstop=4 shiftwidth=4
 autocmd Filetype python setlocal expandtab
 "set cindent
-set background=dark
 set ttimeoutlen=50
+syntax enable
+set background=dark
 colorscheme solarized
 
 if has("autocmd")
