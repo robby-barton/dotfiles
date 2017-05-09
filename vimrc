@@ -18,7 +18,6 @@ set autoindent noexpandtab tabstop=4 shiftwidth=4
 autocmd Filetype python setlocal expandtab
 "set cindent
 set ttimeoutlen=50
-syntax enable
 set background=dark
 colorscheme solarized
 
@@ -102,3 +101,9 @@ let g:airline_symbols.space = "\ua0"
 " Syntastic options
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '»'
+
+if &term =~ '256color'
+	" Disable Background Color Erase (BCE) so color scheme
+	" works properly
+	set t_ut=
+endif
