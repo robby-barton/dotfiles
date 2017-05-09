@@ -13,11 +13,11 @@ prompt_git() {
 	git branch &>/dev/null || return 1
 	HEAD="$(git symbolic-ref HEAD 2>/dev/null)"
 	BRANCH="${HEAD##*/}"
-	[[ -n "$(git status 2>/dev/null | grep -F 'working directory clean')" ]] || STATUS="!"
+	[[ -n "$(git status 2>/dev/null | grep -F 'working tree clean')" ]] || STATUS="!"
 	printf '─[%s]' "${BRANCH:-unknown}${STATUS}"
 }
 
 export EDITOR=vim
 alias macnfs="sudo service nfs restart"
 alias search="grep -Rn"
-alias weka="java -jar ~/weka-3-8-0/weka.jar &"
+alias devl-nas="sudo mount -t nfs -o ro devl-nas:/share/blade /mnt/devl-nas"
