@@ -103,9 +103,3 @@ let g:airline_symbols.space = "\ua0"
 " Syntastic options
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '»'
-
-if &term =~ '256color'
-	" Disable Background Color Erase (BCE) so color scheme
-	" works properly
-	set t_ut=
-endif
