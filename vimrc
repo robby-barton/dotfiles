@@ -18,6 +18,8 @@ set autoindent noexpandtab tabstop=4 shiftwidth=4
 autocmd Filetype python setlocal expandtab
 "set cindent
 set ttimeoutlen=50
+set t_Co=256
+let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
