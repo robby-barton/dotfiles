@@ -10,6 +10,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'IrishPrime/whitewash.vim'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-fugitive'
 call vundle#end()
 set laststatus=2
 set noshowmode

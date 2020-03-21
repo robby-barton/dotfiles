@@ -21,3 +21,7 @@ export EDITOR=vim
 alias macnfs="sudo service nfs restart"
 alias search="grep -Rn"
 alias devl-nas="sudo mount -t nfs -o ro devl-nas:/share/blade /mnt/devl-nas"
+alias iTivity='nohup /usr/lib/iTivity/iManager/iManager &>/dev/null &'
+alias iTivityConnect='ssh -p 22023 -o StrictHostKeyChecking=no -o "UserKnownHostsFile /dev/null" root@localhost'
+alias postman='nohup postman &>/dev/null &'
+alias gen-cscope='find . -name *.c -o -name *.h > cscope.files'
