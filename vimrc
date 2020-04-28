@@ -39,6 +39,13 @@ if has("autocmd")
 		autocmd FileType python set shiftwidth=4
 	augroup END
 
+	augroup web_files
+		autocmd!
+		autocmd FileType json,javascript setlocal expandtab
+		autocmd FileType json,javascript set tabstop=2
+		autocmd FileType json,javascript set shiftwidth=2
+	augroup END
+
 	augroup vimrcEx
 		autocmd!
 		autocmd FileType vim setlocal textwidth=78
@@ -48,6 +55,7 @@ if has("autocmd")
 					\ exe "normal! g`\"" |
 					\endif
 	augroup END
+
 endif
 
 if has("cscope")

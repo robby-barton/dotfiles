@@ -17,6 +17,7 @@ prompt_git() {
 	printf '─[%s]' "${BRANCH:-unknown}${STATUS}"
 }
 
+export HISTCONTROL=ignoreboth:erasedups
 export EDITOR=vim
 alias macnfs="sudo service nfs restart"
 alias search="grep -Rn"
