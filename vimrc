@@ -58,42 +58,6 @@ if has("autocmd")
 
 endif
 
-if has("cscope")
-	set cscopetag cscopeverbose
-	set csto=0
-
-	if has("quickfix")
-		set cscopequickfix=s-,c-,d-,i-,t-,e-
-	endif
-
-	cnoreabbrev <expr> csa
-				\ ((getcmdtype() == ":" && getcmdpos() <= 4)? "cs add"  : "csa")
-	cnoreabbrev <expr> csf
-				\ ((getcmdtype() == ":" && getcmdpos() <= 4)? "cs find" : "csf")
-	cnoreabbrev <expr> csk
-				\ ((getcmdtype() == ":" && getcmdpos() <= 4)? "cs kill" : "csk")
-	cnoreabbrev <expr> csr
-				\ ((getcmdtype() == ":" && getcmdpos() <= 4)? "cs reset" : "csr")
-	cnoreabbrev <expr> css
-				\ ((getcmdtype() == ":" && getcmdpos() <= 4)? "cs show" : "css")
-	cnoreabbrev <expr> csh
-				\ ((getcmdtype() == ":" && getcmdpos() <= 4)? "cs help" : "csh")
-
-	"command -nargs=0 CScope cs add $VIMSRC/src/cscope.out $VIMSRC/src
-
-	" Automatically load CScope
-	function! LoadCscope()
-		let db = findfile("cscope.out", ".;")
-		if (!empty(db))
-			let path = strpart(db, 0, match(db, "/cscope.out$"))
-			set nocscopeverbose " suppress 'duplicate connection' error
-			exe "cs add " . db . " " . path
-			set cscopeverbose
-		endif
-	endfunction
-	au BufEnter /* call LoadCscope()
-endif
-
 " Mapping to edit vimrc
 nmap <Leader>v :tabedit $MYVIMRC<CR>
 
