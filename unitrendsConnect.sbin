@@ -1,9 +1,0 @@
-#!/bin/bash
-set -x
-progName=$(basename $0)
-
-#exec > /tmp/${progName}Log 2>&1
-
-env
-
-sudo /usr/sbin/openconnect --background --syslog --interface=tun1 --no-dtls --script=/usr/local/etc/unitrendsConnect vpn.unitrends.com		# 74.202.224.66
