@@ -4,7 +4,6 @@ set autoindent
 set cursorline
 set laststatus=2
 set listchars=tab:→\ ,eol:¬
-set noendofline
 set nofixendofline
 set noshowmode
 set nu
@@ -30,12 +29,12 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
-Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'stefandtw/quickfix-reflector.vim'
+Plug 'tomlion/vim-solidity'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -144,9 +143,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
-" Ripgrep
-let g:rg_command = "rg --vimgrep -S"
 
 " Quickfix list mappings for open/close
 nnoremap <silent> <Leader>o :copen <CR>
