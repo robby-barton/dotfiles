@@ -1,0 +1,12 @@
+alias vim='nvim'
+alias ev='vim ~/.vimrc'
+alias eb='vim ~/.bashrc'
+alias ez='vim ~/.zshrc'
+alias gr='git rev-parse > /dev/null 2>&1 && cd $(git rev-parse --show-toplevel) > /dev/null 2>&1'
+alias fork-update='git rev-parse > /dev/null 2>&1 && git fetch upstream && git rebase upstream/master'
+alias git-clean="git fetch --prune && git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | git origin) | awk '{print $1}' | xargs git branch -D && git gc"
+if [ "$(uname -s)" = "Darwin" ]; then
+	[ -x "$(command -v gls)" ] && alias ls='gls --group-directories-first --color=always'
+else
+	alias ls='ls --group-directories-first --color=always'
+fi

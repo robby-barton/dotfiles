@@ -5,6 +5,7 @@ PWD=`pwd`
 ln -sf $PWD/vimrc ~/.vimrc
 ln -sf $PWD/bashrc ~/.bashrc
 ln -sf $PWD/zshrc ~/.zshrc
+ln -sf $PWD/aliasrc ~/.aliasrc
 
 # Base16 install
 mkdir -p ~/.config
@@ -15,6 +16,10 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 vim +PlugInstall +qall
+
+# Let Neovim use Vim settings and plugins
+mkdir -p ~/.config/nvim
+ln -sf $PWD/init.vim ~/.config/nvim/init.vim
 
 if [ "$(uname -s)" = "Linux" ]; then
 	wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf

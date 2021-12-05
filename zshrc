@@ -52,15 +52,17 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
 	eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-# user specific
-alias ez='vim ~/.zshrc'
-alias ev='vim ~/.vimrc'
-alias gr='git rev-parse > /dev/null 2>&1 && cd $(git rev-parse --show-toplevel) > /dev/null 2>&1'
-if [ "$(uname -s)" = "Darwin" ]; then
-	[ -x "$(command -v gls)" ] && alias ls='gls --group-directories-first --color=always'
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# common aliases
+if [ -f ~/.aliasrc  ]; then
+	. ~/.aliasrc
 fi
 
-# work specific
-if [ -f ~/.workrc ]; then
-	. ~/.workrc
+# computer specific
+if [ -f ~/.comprc ]; then
+	. ~/.comprc
 fi
