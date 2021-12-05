@@ -3,6 +3,7 @@ filetype off
 set autoindent
 set cursorline
 set laststatus=2
+set list
 set listchars=tab:→\ ,eol:¬
 set nofixendofline
 set noshowmode
@@ -28,11 +29,12 @@ Plug 'APZelos/blamer.nvim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'dense-analysis/ale'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'tomlion/vim-solidity'
 Plug 'tpope/vim-commentary'
