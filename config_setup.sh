@@ -19,7 +19,8 @@ vim +PlugInstall +qall
 
 # Neovim settup
 mkdir -p ~/.config
-nvim +PackerSync +qall
+ln -sf $PWD/nvim ~/.config/nvim
+nvimm --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 if [ "$(uname -s)" = "Linux" ]; then
 	wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
