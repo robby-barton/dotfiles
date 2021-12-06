@@ -17,9 +17,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 vim +PlugInstall +qall
 
-# Let Neovim use Vim settings and plugins
-mkdir -p ~/.config/nvim
-ln -sf $PWD/init.vim ~/.config/nvim/init.vim
+# Neovim settup
+mkdir -p ~/.config
+nvim +PackerSync +qall
 
 if [ "$(uname -s)" = "Linux" ]; then
 	wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
