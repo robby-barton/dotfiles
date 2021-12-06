@@ -1,7 +1,7 @@
+require('plugins/packer')
 require('settings')
 require('colorscheme')
 require('keymaps')
-require('plugins/packer')
 require('plugins/lualine')
 require('plugins/nvim-lspconfig')
 require('plugins/lsp-installer')
