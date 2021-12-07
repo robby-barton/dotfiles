@@ -1,35 +1,37 @@
 local cmd = vim.cmd
 local g = vim.g
+local o = vim.o
 local opt = vim.opt
 
 -- General
 g.mapleader = ','
-opt.mouse = 'a'
-opt.clipboard = 'unnamedplus'
-opt.guicursor = 'i:block'
+o.mouse = 'a'
+o.clipboard = 'unnamedplus'
+o.guicursor = 'i:block'
 
 -- Display
-opt.cursorline = true
-opt.laststatus = 2
-opt.list = true
+o.cursorline = true
+o.laststatus = 2
+o.list = true
 opt.listchars = { eol = '¬', tab = '→ ' }
-opt.nu = true
-opt.showcmd = true
-opt.showmatch = true
-opt.showmode = false
+o.nu = true
+o.showcmd = true
+o.showmatch = true
+o.showmode = false
+o.termguicolors = true
 
 -- Whitespace
-opt.autoindent = true
-opt.expandtab = false
-opt.fixendofline = false
-opt.shiftwidth = 4
-opt.tabstop = 4
+o.autoindent = true
+o.expandtab = false
+o.fixendofline = false
+o.shiftwidth = 4
+o.tabstop = 4
 
 -- Search
-opt.hlsearch = true
-opt.ignorecase = true
-opt.incsearch = true
-opt.smartcase = true
+o.hlsearch = true
+o.ignorecase = true
+o.incsearch = true
+o.smartcase = true
 
 -- Remember place in buffer
 cmd [[ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]]

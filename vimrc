@@ -25,16 +25,12 @@ nnoremap <silent> <Leader>* :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hl
 
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'APZelos/blamer.nvim'
-Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
-Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'tomlion/vim-solidity'
 Plug 'tpope/vim-commentary'
@@ -124,23 +120,6 @@ endif
 let g:airline_symbols.space = "\ua0"
 let g:airline#extensions#ale#enabled = 1
 
-" Ale Settings
-let g:ale_sign_error = '●'
-let g:ale_sign_warning = '.'
-let g:ale_use_global_executables = 1
-let g:ale_set_highlights = 0
-
-" CoC Settings
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1] =~# '\s'
-endfunction
-
-let g:coc_global_extensions = ['coc-solargraph']
-
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -154,12 +133,3 @@ nnoremap <silent> <Leader>c :ccl <CR>
 nnoremap <silent> <Leader>l :ls <CR>
 
 nnoremap <Leader>d :bd <CR>
-
-" Blamer
-let g:blamer_enabled = 1
-let g:blamer_show_in_visual_modes = 0
-let g:blamer_show_in_insert_modes = 0
-let g:blamer_delay = 500
-let g:blamer_date_format = '%Y-%m-%d %H:%M:%S'
-let g:blamer_prefix = ' --'
-let g:blamer_template = '[<commit-short>] <author> (<author-time>) ─ <summary>'
