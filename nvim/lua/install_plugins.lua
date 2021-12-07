@@ -1,12 +1,4 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-end
-
-local packer = require 'packer'
-
-return packer.startup(function(use)
+return require('packer').startup(function(use)
 	-- manage itself
 	use 'wbthomason/packer.nvim'
 
@@ -28,7 +20,7 @@ return packer.startup(function(use)
 	use {
 		'windwp/nvim-autopairs',
 		config = function()
-			require('nvim-autopairs').setup()
+			require('nvim-autopairs').setup{}
 		end
 	}
 
@@ -55,7 +47,7 @@ return packer.startup(function(use)
 		ft = {'markdown'}
 	}
 
-	-- Git things
+	-- git things
 	use {
 		'lewis6991/gitsigns.nvim',
 		requires = {'nvim-lua/plenary.nvim'}
@@ -66,8 +58,16 @@ return packer.startup(function(use)
 		'nvim-telescope/telescope.nvim',
 		requires = {'nvim-lua/plenary.nvim'}
 	}
+	use {
+		'nvim-telescope/telescope-fzf-native.nvim',
+		run = 'make'
+	}
 
-	if packer_bootstrap then
-		require('packer').sync()
-	end
+	-- ruby
+	use 'vim-ruby/vim-ruby'
+	use 'tpope/vim-endwise'
+
+	-- other
+	use 'tpope/vim-commentary'
+	use 'tpope/vim-surround'
 end)

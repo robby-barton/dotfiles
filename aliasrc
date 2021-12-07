@@ -10,3 +10,4 @@ if [ "$(uname -s)" = "Darwin" ]; then
 else
 	alias ls='ls --group-directories-first --color=always'
 fi
+alias update-packer='nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"'
