@@ -10,6 +10,7 @@ ln -sf $PWD/aliasrc ~/.aliasrc
 # Base16 install
 mkdir -p ~/.config
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+base16_tomorrow-night
 # favorites: tomorrow-night
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -20,14 +21,10 @@ vim +PlugInstall +qall
 # Neovim settup
 mkdir -p ~/.config
 ln -sf $PWD/nvim ~/.config/nvim
-nvimm --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 if [ "$(uname -s)" = "Linux" ]; then
-	wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
-	wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
 	mkdir -p ~/.fonts/
-	mkdir -p ~/.config/fontconfig/conf.d
-	mv PowerlineSymbols.otf ~/.fonts/
-	mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+	(cd ~/.fonts && curl -fLo "DejaVu Sans Mono Nerd Font Complete Mono.ttf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.ttf)
 	fc-cache -vf ~/.fonts/
 fi
