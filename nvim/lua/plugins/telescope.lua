@@ -30,13 +30,6 @@ telescope.setup{
 			height = 0.9
 		}
 	},
-	pickers = {
-		find_files = {
-			find_command = {
-				'rg', '--files', '-L'
-			}
-		}
-	},
 }
 
 telescope.load_extension 'fzf'
