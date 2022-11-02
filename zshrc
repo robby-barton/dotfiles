@@ -50,7 +50,7 @@ PROMPT='┌─[%(?.%F{blue}.%F{red})%~%f]${vcs_info_msg_0_}'$'\n''└─╼ '
 # Base16 themeing for shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-	eval "$("$BASE16_SHELL/profile_helper.sh")"
+	source "$BASE16_SHELL/profile_helper.sh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
