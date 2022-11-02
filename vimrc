@@ -43,11 +43,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-ruby/vim-ruby'
 call plug#end()
 
-" Color Scheme
-if filereadable(expand("~/.vimrc_background"))
-	let base16colorspace=256
-	source ~/.vimrc_background
-endif
+colorscheme base16-tomorrow-night
+
 highlight Comment cterm=italic
 highlight CursorLine ctermbg=none
 highlight CursorLineNr cterm=none ctermbg=none ctermfg=7

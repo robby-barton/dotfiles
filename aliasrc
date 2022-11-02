@@ -3,6 +3,7 @@ function git-clean() {
 }
 
 alias vim='nvim'
+alias hn='hostname'
 alias ev='vim ~/.vimrc'
 alias eb='vim ~/.bashrc'
 alias ez='vim ~/.zshrc'
