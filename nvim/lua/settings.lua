@@ -19,6 +19,7 @@ o.showcmd = true
 o.showmatch = true
 o.showmode = false
 o.termguicolors = true
+opt.cc = '80,100'
 
 -- Whitespace
 o.autoindent = true

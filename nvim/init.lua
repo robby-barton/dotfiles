@@ -31,4 +31,8 @@ cmd [[
 	hi Normal guibg=none ctermbg=none
 
 	hi! link LineNr Comment
+
+	hi GitGutterAdd guibg=none
+	hi GitGutterChange guibg=none
+	hi GitGutterDelete guibg=none
 ]]
