@@ -3,7 +3,7 @@ alias ev='vim ~/.vimrc'
 alias eb='vim ~/.bashrc'
 alias ez='vim ~/.zshrc'
 alias gr='git rev-parse > /dev/null 2>&1 && cd $(git rev-parse --show-toplevel) > /dev/null 2>&1'
-alias fork-update='git rev-parse > /dev/null 2>&1 && git fetch upstream && git rebase upstream/master'
+alias fork-update='git rev-parse > /dev/null 2>&1 && git fetch -u upstream && git rebase upstream/master'
 alias git-clean="git rev-parse > /dev/null 2>&1 && git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done"
 if [ "$(uname -s)" = "Darwin" ]; then
 	[ -x "$(command -v gls)" ] && alias ls='gls --group-directories-first --color=always'
