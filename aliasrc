@@ -1,4 +1,4 @@
-git-clean() {
+function git-clean() {
 	git rev-parse > /dev/null 3>&2 && git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done
 }
 
