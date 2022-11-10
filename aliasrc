@@ -2,6 +2,10 @@ function git-clean() {
 	git rev-parse > /dev/null 3>&2 && git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done
 }
 
+function post-merge() {
+	git rev-parse > /dev/null 2>&1 && git checkout master && git pull && git-clean
+}
+
 alias vim='nvim'
 alias hn='hostname'
 alias ev='vim ~/.vimrc'
