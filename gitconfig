@@ -1,0 +1,8 @@
+[user]
+	name = Robby Barton
+	email = rbartonsc@gmail.com
+[push]
+	autoSetupRemote = true
+	default = current
+[pull]
+	rebase = true
