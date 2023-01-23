@@ -9,12 +9,11 @@ ln -sf $PWD/bashrc ~/.bashrc
 ln -sf $PWD/zshrc ~/.zshrc
 ln -sf $PWD/p10k.zsh ~/.p10k.zsh
 ln -sf $PWD/aliasrc ~/.aliasrc
-ls -sf $PWD/gitconfig ~/.gitconfig
+ln -sf $PWD/gitconfig ~/.gitconfig
 ln -sf $PWD/nvim ~/.config/nvim
 
 # base16 install
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-base16_tomorrow-night
 # favorites: tomorrow-night
 
 # Powerlevel10k
