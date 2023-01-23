@@ -7,6 +7,7 @@ mkdir -p ~/.config
 ln -sf $PWD/vimrc ~/.vimrc
 ln -sf $PWD/bashrc ~/.bashrc
 ln -sf $PWD/zshrc ~/.zshrc
+ln -sf $PWD/p10k.zsh ~/.p10k.zsh
 ln -sf $PWD/aliasrc ~/.aliasrc
 ls -sf $PWD/gitconfig ~/.gitconfig
 ln -sf $PWD/nvim ~/.config/nvim
@@ -15,6 +16,9 @@ ln -sf $PWD/nvim ~/.config/nvim
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 base16_tomorrow-night
 # favorites: tomorrow-night
+
+# Powerlevel10k
+git clone https://github.com/romkatv/powerlevel10k.git ~/.config/powerlevel10k
 
 # vim plugin manager
 mkdir -p ~/.vim/autoload
