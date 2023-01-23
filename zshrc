@@ -18,15 +18,6 @@ unsetopt beep
 
 export EDITOR=vim
 
-#  version control information
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr '!'
-zstyle ':vcs_info:*' stagedstr '+'
-zstyle ':vcs_info:git:*' formats '-[%F{magenta}%b%f%F{red}%u%f%F{yellow}%c%f]'
-autoload -Uz vcs_info
-precmd() { vcs_info }
-
 # completion settings
 zstyle ':completion:*' auto-description 'specify:%d'
 zstyle ':completion:*' completer _expand _complete _ignored _match _approximate
