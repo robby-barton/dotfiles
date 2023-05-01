@@ -1,9 +1,10 @@
+#! /usr/bin/env bash
 function git-clean() {
-	git rev-parse > /dev/null 3>&2 && git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done
+	git rev-parse >/dev/null 3>&2 && git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done
 }
 
 function post-merge() {
-	git rev-parse > /dev/null 2>&1 && git checkout master && git pull && git-clean
+	git rev-parse >/dev/null 2>&1 && git checkout master && git pull && git-clean
 }
 
 alias vim='nvim'
@@ -18,4 +19,3 @@ if [ "$(uname -s)" = "Darwin" ]; then
 else
 	alias ls='ls --group-directories-first --color=always'
 fi
-alias update-packer='nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"'
