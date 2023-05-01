@@ -7,10 +7,10 @@ function safeCopyConfig() {
 	fi
 
 	expectedName=~/.${1}
-	if [ -z "${2}" ]; then
+	if [ -n "${2}" ]; then
 		expectedName=~/.${2}
 	fi
-	if [ -f ${expectedName} ]; then
+	if [ -a ${expectedName} ]; then
 		mv ${expectedName} ${expectedName}.bak
 	fi
 	ln -sf $PWD/${1} ${expectedName}
