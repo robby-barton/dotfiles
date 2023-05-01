@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-PWD=`pwd`
+PWD=$(pwd)
 
 mkdir -p ~/.config
 
@@ -23,7 +23,4 @@ git clone https://github.com/romkatv/powerlevel10k.git ~/.config/powerlevel10k
 mkdir -p ~/.vim/autoload
 wget -O ~/.vim/autoload/plug.vim \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim +PlugInstall +qall
-
-# neovim setup
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+\vim +PlugInstall +qall
