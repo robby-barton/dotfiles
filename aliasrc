@@ -7,6 +7,14 @@ function post-merge() {
 	git rev-parse >/dev/null 2>&1 && git checkout master && git pull && git-clean
 }
 
+function checkx() {
+	if ! timeout 1s xset q &>/dev/null; then
+		echo "No X server running"
+	else
+		echo "X server running"
+	fi
+}
+
 alias vim='nvim'
 alias hn='hostname'
 alias ev='vim ~/.vimrc'
