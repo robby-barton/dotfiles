@@ -21,9 +21,10 @@ alias ev='vim ~/.vimrc'
 alias eb='vim ~/.bashrc'
 alias ez='vim ~/.zshrc'
 alias gr='git rev-parse > /dev/null 2>&1 && cd $(git rev-parse --show-toplevel) > /dev/null 2>&1'
-alias fork-update='git rev-parse > /dev/null 2>&1 && git fetch -u upstream && git rebase upstream/master'
+alias fr='git rev-parse > /dev/null 2>&1 && git fetch -u upstream && git rebase upstream/master'
 if [ "$(uname -s)" = "Darwin" ]; then
 	[ -x "$(command -v gls)" ] && alias ls='gls --group-directories-first --color=always'
 else
 	alias ls='ls --group-directories-first --color=always'
 fi
+alias gl="git log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%C(yellow)%d%Creset'"
