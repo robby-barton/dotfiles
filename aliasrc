@@ -22,6 +22,7 @@ alias eb='vim ~/.bashrc'
 alias ez='vim ~/.zshrc'
 alias gr='git rev-parse > /dev/null 2>&1 && cd $(git rev-parse --show-toplevel) > /dev/null 2>&1'
 alias fr='git rev-parse > /dev/null 2>&1 && git fetch -u upstream && git rebase upstream/master'
+alias pm='post-merge'
 if [ "$(uname -s)" = "Darwin" ]; then
 	[ -x "$(command -v gls)" ] && alias ls='gls --group-directories-first --color=always'
 else
