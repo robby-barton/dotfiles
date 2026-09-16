@@ -1,0 +1,16 @@
+{
+  "lastChangelogVersion": "0.85.1",
+  "theme": "p10k",
+  "terminal": {
+    "clearOnShrink": true
+  },
+  "defaultProvider": "openrouter",
+  "defaultModel": "z-ai/glm-5.3-flash",
+  "modelThinkingLevels": {
+    "openrouter/z-ai/glm-5.3-flash": "high"
+  },
+  "packages": [
+    "../../src/pi-powerlevel10k"
+  ],
+  "hideThinkingBlock": false
+}
