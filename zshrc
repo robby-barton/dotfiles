@@ -71,3 +71,4 @@ fi
 if [ -f ~/.comprc ]; then
 	. ~/.comprc
 fi
+export PATH="$HOME/.local/bin:$PATH"
